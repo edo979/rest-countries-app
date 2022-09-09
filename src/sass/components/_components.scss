@@ -24,6 +24,7 @@ body {
 .form {
   --f-direction: column;
   --f-align: start;
+  --p-block: 0.575rem;
 
   .input-group {
     display: inline-flex;
@@ -33,7 +34,7 @@ body {
 
     border-radius: 5px;
 
-    padding: 0.55rem 2.5rem;
+    padding: var(--p-block) 2.5rem;
 
     background-color: hsl(var(--clr-primary-200));
 
@@ -49,6 +50,8 @@ body {
   input,
   select {
     border: none;
+    border-radius: 5px;
+
     font-size: var(--fs-300);
     font-weight: 300;
     color: var(--clr-text);
@@ -65,12 +68,14 @@ body {
     }
 
     &:focus {
-      border-radius: 5px;
       outline: 1px solid var(--clr-text);
     }
   }
 
   select {
+    width: 50%;
+    padding: calc(var(--p-block) + 0.5rem) 1rem;
+
     background-color: hsl(var(--clr-primary-200));
   }
 }
