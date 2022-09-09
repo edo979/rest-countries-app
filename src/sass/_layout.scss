@@ -5,7 +5,7 @@
 
 .container {
   max-width: 100%;
-  padding-inline: clamp(20px, 6vw, 75px);
+  padding-inline: clamp(15px, 5vw, 75px);
 }
 
 .flex {
@@ -18,4 +18,8 @@
 
 .grid-container {
   display: grid;
+}
+
+.form {
+  margin-top: 2rem;
 }

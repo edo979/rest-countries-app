@@ -1,6 +1,6 @@
 body {
   --clr-bg: var(--clr-dark-100);
-  --clr-text: var(--clr-white);
+  --clr-text: hsl(var(--clr-white), 0.85);
   --clr-primary-100: var(--clr-dark-200);
   --clr-primary-200: var(--clr-dark-200);
 
@@ -12,34 +12,61 @@ body {
   }
 
   background-color: hsl(var(--clr-bg));
-  color: hsl(var(--clr-text));
+  color: var(--clr-text);
 }
 
 .header {
-  background-color: hsl(var(--clr-primary-100));
-}
+  padding-block: 2.25rem;
 
-main {
-  outline: 1px solid blue;
+  background-color: hsl(var(--clr-primary-100));
 }
 
 .form {
   --f-direction: column;
   --f-align: start;
 
+  .input-group {
+    display: inline-flex;
+    align-items: center;
+    gap: 1.25rem;
+    width: 100%;
+
+    border-radius: 5px;
+
+    padding: 0.55rem 2.5rem;
+
+    background-color: hsl(var(--clr-primary-200));
+
+    svg {
+      width: 18px;
+
+      path {
+        fill: var(--clr-text);
+      }
+    }
+  }
+
   input,
   select {
     border: none;
     font-size: var(--fs-300);
     font-weight: 300;
-    color: hsl(var(--clr-text));
+    color: var(--clr-text);
   }
 
   input {
-    background-color: hsl(var(--clr-primary-100));
+    width: 100%;
+    padding: 0.5rem;
+
+    background-color: transparent;
 
     &::placeholder {
       color: inherit;
+    }
+
+    &:focus {
+      border-radius: 5px;
+      outline: 1px solid var(--clr-text);
     }
   }
 
@@ -50,14 +77,26 @@ main {
 
 .btn {
   border: none;
-  color: hsl(var(--clr-text));
+  color: var(--clr-text);
 
   font-size: var(--fs-400);
   font-weight: 600;
 
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+
   cursor: pointer;
 
   &-theme {
+    padding: 0;
     background-color: hsl(var(--clr-primary-100));
+
+    svg {
+      width: 10px;
+      path {
+        fill: var(--clr-text);
+      }
+    }
   }
 }
