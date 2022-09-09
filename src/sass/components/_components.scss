@@ -27,6 +27,9 @@ main {
   border: none;
   color: hsl(var(--clr-text));
 
+  font-size: var(--fs-400);
+  font-weight: 600;
+
   cursor: pointer;
 
   &-theme {

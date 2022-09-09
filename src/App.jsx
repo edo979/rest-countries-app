@@ -5,7 +5,7 @@ function App() {
         <h1>Where in the world?</h1>
         <button className="btn btn-theme">
           <span></span>
-          <span>Light Mode</span>
+          <span>Dark Mode</span>
         </button>
       </header>
 
