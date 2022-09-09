@@ -23,6 +23,31 @@ main {
   outline: 1px solid blue;
 }
 
+.form {
+  --f-direction: column;
+  --f-align: start;
+
+  input,
+  select {
+    border: none;
+    font-size: var(--fs-300);
+    font-weight: 300;
+    color: hsl(var(--clr-text));
+  }
+
+  input {
+    background-color: hsl(var(--clr-primary-100));
+
+    &::placeholder {
+      color: inherit;
+    }
+  }
+
+  select {
+    background-color: hsl(var(--clr-primary-200));
+  }
+}
+
 .btn {
   border: none;
   color: hsl(var(--clr-text));

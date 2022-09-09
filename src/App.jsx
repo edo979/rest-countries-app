@@ -13,7 +13,12 @@ function App() {
         <form className="form | flex">
           <div className="input-group">
             <span>icon</span>
-            <input type="text" name="search" id="search" />
+            <input
+              type="text"
+              name="search"
+              id="search"
+              placeholder="Search for a country..."
+            />
           </div>
           <div className="input-group">
             <select name="region" id="region">
