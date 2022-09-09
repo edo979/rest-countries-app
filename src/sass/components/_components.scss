@@ -1,0 +1,35 @@
+body {
+  --clr-bg: var(--clr-dark-100);
+  --clr-text: var(--clr-white);
+  --clr-primary-100: var(--clr-dark-200);
+  --clr-primary-200: var(--clr-dark-200);
+
+  &.light {
+    --clr-bg: var(--clr-light-900);
+    --clr-text: var(--clr-light-100);
+    --clr-primary-100: var(--clr-white);
+    --clr-primary-200: var(--clr-light-500);
+  }
+
+  background-color: hsl(var(--clr-bg));
+  color: hsl(var(--clr-text));
+}
+
+.header {
+  background-color: hsl(var(--clr-primary-100));
+}
+
+main {
+  outline: 1px solid blue;
+}
+
+.btn {
+  border: none;
+  color: hsl(var(--clr-text));
+
+  cursor: pointer;
+
+  &-theme {
+    background-color: hsl(var(--clr-primary-100));
+  }
+}
