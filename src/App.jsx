@@ -1,7 +1,7 @@
 function App() {
   return (
     <>
-      <header className="header | flex container">
+      <header className="header | container flex">
         <h1>Where in the world?</h1>
         <button className="btn btn-theme">
           <span></span>
@@ -9,7 +9,7 @@ function App() {
         </button>
       </header>
 
-      <main>
+      <main className="container">
         <form className="form | flex">
           <div className="input-group">
             <span>icon</span>
@@ -28,8 +28,8 @@ function App() {
         </form>
 
         <section>
-          <ul>
-            <li>belgia</li>
+          <ul className="countries-list | grid-container">
+            <li className="card">belgia</li>
           </ul>
         </section>
       </main>
