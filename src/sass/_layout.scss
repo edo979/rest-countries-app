@@ -1,0 +1,30 @@
+.main-container {
+  width: min(1440px, 100%);
+  margin-inline: auto;
+
+  display: grid;
+  grid-template-columns: minmax(20px, 1fr) minmax(250px, 1290px) minmax(
+      20px,
+      1fr
+    );
+
+  outline: 1px solid red;
+}
+
+.container {
+  display: flex;
+  max-width: 100%;
+  margin-inline: clamp(20px, 6vw, 75px);
+
+  outline: 1px solid green;
+}
+
+.header {
+  grid-area: 1/1/2/4;
+  outline: 1px solid green;
+}
+
+main {
+  grid-area: 2/2/3/3;
+  outline: 1px solid blue;
+}

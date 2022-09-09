@@ -1,7 +1,7 @@
 function App() {
   return (
-    <div className="App">
-      <header className="header | flex">
+    <>
+      <header className="header | flex container">
         <h1>Where in the world?</h1>
         <button className="btn btn-theme">
           <span></span>
@@ -33,7 +33,7 @@ function App() {
           </ul>
         </section>
       </main>
-    </div>
+    </>
   )
 }
 
