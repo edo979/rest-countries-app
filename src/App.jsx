@@ -3,7 +3,10 @@ import CountriesList from './components/CountriesList'
 import RegionSelect from './components/RegionSelect'
 
 function App() {
-  const [countries, setCountries] = useState([])
+  const [state, setState] = useState({
+    countries: [],
+    filteredCountries: undefined,
+  })
 
   useEffect(() => {
     fetchData()
@@ -18,7 +21,7 @@ function App() {
 
         const data = await response.json()
 
-        setCountries(data)
+        setState((prev) => ({ ...prev, countries: data }))
       } catch (error) {
         console.error(
           'There has been a problem with your fetch operation:',
@@ -27,6 +30,19 @@ function App() {
       }
     }
   }, [])
+
+  const onInputChange = (e) => {
+    const userInput = e.target.value
+    const filteredCountries = state.countries.filter((country) =>
+      country.name.common.toLowerCase().startsWith(userInput)
+    )
+
+    if (userInput) {
+      setState((prev) => ({ ...prev, filteredCountries }))
+    } else {
+      setState((prev) => ({ ...prev, filteredCountries: undefined }))
+    }
+  }
 
   return (
     <>
@@ -53,6 +69,7 @@ function App() {
               name="search"
               id="search"
               placeholder="Search for a country..."
+              onChange={onInputChange}
             />
           </div>
 
@@ -60,7 +77,13 @@ function App() {
         </form>
 
         <section className="countries | m-top">
-          <CountriesList countries={countries} />
+          <CountriesList
+            countries={
+              state.filteredCountries
+                ? state.filteredCountries
+                : state.countries
+            }
+          />
         </section>
       </main>
     </>
