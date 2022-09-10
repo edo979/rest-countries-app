@@ -7,6 +7,7 @@ function App() {
     countries: [],
     filteredCountries: undefined,
     selectedRegion: undefined,
+    inputValue: undefined,
   })
 
   useEffect(() => {
@@ -32,34 +33,63 @@ function App() {
     }
   }, [])
 
-  const onInputChange = (e) => {
-    const userInput = e.target.value
-    const filteredCountries = state.countries.filter((country) =>
-      country.name.common.toLowerCase().startsWith(userInput)
-    )
+  useEffect(() => {
+    filterCountries()
+  }, [state.inputValue, state.selectedRegion])
 
-    if (userInput === '') {
-      setState((prev) => ({ ...prev, filteredCountries: undefined }))
+  const onInputChange = (e) => {
+    const inputValue = e.target.value
+
+    if (inputValue === '') {
+      // Reset select by region filter
+      setState((prev) => ({
+        ...prev,
+        filteredCountries: undefined,
+        selectedRegion: undefined,
+        inputValue: undefined,
+      }))
       return
     }
 
     setState((prev) => ({
       ...prev,
-      filteredCountries,
-      selectedRegion: undefined,
+      inputValue,
     }))
   }
 
   const onSelectChange = (selected) => {
     const selectedRegion = selected.value
-    const filteredCountries = state.countries.filter(
-      (country) => country.region.toLowerCase() === selectedRegion
-    )
+
+    setState((prev) => ({
+      ...prev,
+      selectedRegion,
+    }))
+  }
+
+  const filterCountries = () => {
+    let filteredCountries = []
+
+    if (state.inputValue && state.selectedRegion) {
+      filteredCountries = state.countries.filter(
+        (country) =>
+          country.name.common.toLowerCase().startsWith(state.inputValue) &&
+          country.region.toLowerCase() === state.selectedRegion
+      )
+    } else if (state.inputValue) {
+      filteredCountries = state.countries.filter((country) =>
+        country.name.common.toLowerCase().startsWith(state.inputValue)
+      )
+    } else if (state.selectedRegion) {
+      filteredCountries = state.countries.filter(
+        (country) => country.region.toLowerCase() === state.selectedRegion
+      )
+    } else {
+      filteredCountries = undefined
+    }
 
     setState((prev) => ({
       ...prev,
       filteredCountries,
-      selectedRegion: selected.value,
     }))
   }
 
