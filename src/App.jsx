@@ -1,7 +1,33 @@
+import { useState, useEffect } from 'react'
 import CountriesList from './components/CountriesList'
 import RegionSelect from './components/RegionSelect'
 
 function App() {
+  const [countries, setCountries] = useState([])
+
+  useEffect(() => {
+    fetchData()
+
+    async function fetchData() {
+      try {
+        const response = await fetch('./data.json')
+
+        if (!response.ok) {
+          throw new Error('Network response was not OK')
+        }
+
+        const data = await response.json()
+
+        setCountries(data)
+      } catch (error) {
+        console.error(
+          'There has been a problem with your fetch operation:',
+          error
+        )
+      }
+    }
+  }, [])
+
   return (
     <>
       <header className="header | container flex">
@@ -34,7 +60,7 @@ function App() {
         </form>
 
         <section className="countries | m-top">
-          <CountriesList />
+          <CountriesList countries={countries} />
         </section>
       </main>
     </>

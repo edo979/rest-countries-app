@@ -1,19 +1,19 @@
 import React from 'react'
 
-function CountriesItem() {
+function CountriesItem({ name, population, region, capital }) {
   return (
     <li className="card">
       <div className="card_img"></div>
       <div className="card_body">
-        <h2>Germany</h2>
+        <h2>{name}</h2>
         <p>
-          Population: <span>81,770.900</span>
+          Population: <span>{population}</span>
         </p>
         <p>
-          Region: <span>Europe</span>
+          Region: <span>{region}</span>
         </p>
         <p>
-          Capital: <span>Berlin</span>
+          Capital: <span>{capital}</span>
         </p>
       </div>
     </li>
