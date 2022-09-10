@@ -1,17 +1,45 @@
 import Select from 'react-select'
 
-import React from 'react'
-
 const customStyles = {
-    control: (styles) => ({
-      ...styles,
-      backgroundColor: 'hsl(var(--clr-primary-100))',
-      border: 'none',
+    container: (defaultStyles) => ({
+      ...defaultStyles,
+      width: '50%',
     }),
-    option: (styles, { data, isDisabled, isFocused, isSelected }) => ({
-      ...styles,
+    placeholder: (defaultStyles) => {
+      return {
+        ...defaultStyles,
+        color: 'var(--clr-text)',
+      }
+    },
+    control: (defaultStyles, state) => ({
+      ...defaultStyles,
+      paddingBlock: '0.4rem',
+      border: 'none',
+      fontSize: 'var(--fs-300)',
+      color: 'var(--clr-text)',
       backgroundColor: 'hsl(var(--clr-primary-100))',
-      margin: '0',
+      boxShadow: state.isFocused ? null : null,
+    }),
+    menu: (defaultStyles) => ({
+      ...defaultStyles,
+      borderRadius: '5px',
+      backgroundColor: 'hsl(var(--clr-primary-100))',
+    }),
+    menuList: (defaultStyles) => ({
+      ...defaultStyles,
+      paddingTop: 0,
+      paddingBottom: 0,
+    }),
+    option: (defaultStyles, { data, isDisabled, isFocused, isSelected }) => ({
+      ...defaultStyles,
+      fontSize: 'var(--fs-300)',
+      color: 'var(--clr-text)',
+      backgroundColor: isFocused ? 'hsl(var(--clr-bg), 0.8)' : 'transparent',
+      boxShadow: isFocused ? 'inset 0 0 0 1px var(--clr-text)' : 'none',
+    }),
+    singleValue: (defaultStyles) => ({
+      ...defaultStyles,
+      color: 'var(--clr-text)',
     }),
   },
   options = [
@@ -27,8 +55,10 @@ function RegionSelect() {
     <Select
       options={options}
       styles={customStyles}
-      className="select"
-      placeholder={'Select by Region'}
+      placeholder={'Filter by Region'}
+      components={{
+        IndicatorSeparator: () => null,
+      }}
     />
   )
 }
