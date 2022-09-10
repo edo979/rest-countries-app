@@ -67,24 +67,29 @@ function App() {
   }
 
   const filterCountries = () => {
+    // Filter functions
+    const filterByName = (country) =>
+      country.name.common.toLowerCase().startsWith(state.inputValue)
+
+    const filterByRegion = (country) =>
+      country.region.toLowerCase() === state.selectedRegion
+
     let filteredCountries = []
 
     if (state.inputValue && state.selectedRegion) {
       filteredCountries = state.countries.filter(
-        (country) =>
-          country.name.common.toLowerCase().startsWith(state.inputValue) &&
-          country.region.toLowerCase() === state.selectedRegion
+        (country) => filterByName(country) && filterByRegion(country)
       )
     } else if (state.inputValue) {
       filteredCountries = state.countries.filter((country) =>
-        country.name.common.toLowerCase().startsWith(state.inputValue)
+        filterByName(country)
       )
     } else if (state.selectedRegion) {
-      filteredCountries = state.countries.filter(
-        (country) => country.region.toLowerCase() === state.selectedRegion
+      filteredCountries = state.countries.filter((country) =>
+        filterByRegion(country)
       )
     } else {
-      filteredCountries = undefined
+      return
     }
 
     setState((prev) => ({
