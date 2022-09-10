@@ -18,7 +18,7 @@ body {
 }
 
 .header {
-  padding-block: 2.25rem;
+  padding-block: 2.3rem;
 
   background-color: hsl(var(--clr-primary-100));
 }
@@ -26,7 +26,8 @@ body {
 .form {
   --f-direction: column;
   --f-align: start;
-  --p-block: 0.575rem;
+  --p-block: 0.6rem;
+  --f-gap: 2.5rem;
 
   .input-group {
     display: inline-flex;
@@ -76,7 +77,6 @@ body {
 
   select {
     width: 50%;
-    margin-top: 1.85rem;
     padding: calc(var(--p-block) + 0.5rem) 1rem;
 
     background-color: hsl(var(--clr-primary-200));

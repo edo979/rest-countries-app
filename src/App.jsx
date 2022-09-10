@@ -12,7 +12,7 @@ function App() {
       </header>
 
       <main className="container">
-        <form className="form | flex">
+        <form className="form | flex m-top">
           <div className="input-group">
             <label htmlFor="search">
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
@@ -37,7 +37,7 @@ function App() {
           </select>
         </form>
 
-        <section>
+        <section className="countries | m-top">
           <ul className="countries-list | grid-container">
             <li className="card">
               <div className="card_img"></div>

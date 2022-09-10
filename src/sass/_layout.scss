@@ -20,6 +20,11 @@
   display: grid;
 }
 
-.form {
-  margin-top: 2rem;
+.countries {
+  --m-top: 2.5rem;
+}
+
+// Utility
+.m-top {
+  margin-top: var(--m-top, 1.5rem);
 }
