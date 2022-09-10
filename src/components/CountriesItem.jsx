@@ -1,13 +1,15 @@
 import React from 'react'
 
-function CountriesItem({ name, population, region, capital }) {
+function CountriesItem({ name, population, region, capital, flags }) {
   return (
     <li className="card">
-      <div className="card_img"></div>
+      <div className="card_img">
+        <img src={flags.png} alt="" />
+      </div>
       <div className="card_body">
         <h2>{name}</h2>
         <p>
-          Population: <span>{population}</span>
+          Population: <span>{population.toLocaleString()}</span>
         </p>
         <p>
           Region: <span>{region}</span>

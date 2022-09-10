@@ -10,6 +10,7 @@ function CountriesList({ countries }) {
           population={country.population}
           region={country.region}
           capital={country.capital}
+          flags={country.flags}
         />
       ))}
     </ul>
