@@ -1,3 +1,5 @@
+@use 'countries';
+
 body {
   --clr-bg: var(--clr-dark-100);
   --clr-text: hsl(var(--clr-white), 0.85);
@@ -74,6 +76,7 @@ body {
 
   select {
     width: 50%;
+    margin-top: 1.85rem;
     padding: calc(var(--p-block) + 0.5rem) 1rem;
 
     background-color: hsl(var(--clr-primary-200));
