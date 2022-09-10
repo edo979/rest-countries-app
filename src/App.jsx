@@ -6,6 +6,7 @@ function App() {
   const [state, setState] = useState({
     countries: [],
     filteredCountries: undefined,
+    selectedRegion: undefined,
   })
 
   useEffect(() => {
@@ -37,11 +38,29 @@ function App() {
       country.name.common.toLowerCase().startsWith(userInput)
     )
 
-    if (userInput) {
-      setState((prev) => ({ ...prev, filteredCountries }))
-    } else {
+    if (userInput === '') {
       setState((prev) => ({ ...prev, filteredCountries: undefined }))
+      return
     }
+
+    setState((prev) => ({
+      ...prev,
+      filteredCountries,
+      selectedRegion: undefined,
+    }))
+  }
+
+  const onSelectChange = (selected) => {
+    const selectedRegion = selected.value
+    const filteredCountries = state.countries.filter(
+      (country) => country.region.toLowerCase() === selectedRegion
+    )
+
+    setState((prev) => ({
+      ...prev,
+      filteredCountries,
+      selectedRegion: selected.value,
+    }))
   }
 
   return (
@@ -73,7 +92,10 @@ function App() {
             />
           </div>
 
-          <RegionSelect />
+          <RegionSelect
+            onChange={onSelectChange}
+            selected={state.selectedRegion}
+          />
         </form>
 
         <section className="countries | m-top">

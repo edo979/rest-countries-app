@@ -44,13 +44,13 @@ const customStyles = {
   },
   options = [
     { value: 'africa', label: 'Africa' },
-    { value: 'america', label: 'America' },
+    { value: 'americas', label: 'America' },
     { value: 'asia', label: 'Asia' },
-    { value: 'Europe', label: 'Europe' },
+    { value: 'europe', label: 'Europe' },
     { value: 'oceania', label: 'Oceania' },
   ]
 
-function RegionSelect() {
+function RegionSelect({ onChange, selected }) {
   return (
     <Select
       options={options}
@@ -59,6 +59,8 @@ function RegionSelect() {
       components={{
         IndicatorSeparator: () => null,
       }}
+      onChange={onChange}
+      value={options.filter((option) => option.value === selected)}
     />
   )
 }
