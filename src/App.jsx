@@ -1,3 +1,5 @@
+import RegionSelect from './components/RegionSelect'
+
 function App() {
   return (
     <>
@@ -27,14 +29,7 @@ function App() {
             />
           </div>
 
-          <select name="region" id="region">
-            <option value="0">Filter by Region</option>
-            <option value="1">Africa</option>
-            <option value="2">America</option>
-            <option value="3">Asia</option>
-            <option value="4">Europe</option>
-            <option value="5">Oceania</option>
-          </select>
+          <RegionSelect />
         </form>
 
         <section className="countries | m-top">
