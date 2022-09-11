@@ -1,40 +1,16 @@
-import { useState, useEffect } from 'react'
+import { useState } from 'react'
+import { useOutletContext } from 'react-router-dom'
 
 import CountriesItem from './CountriesItem'
 import RegionSelect from './RegionSelect'
 
 function CountriesList() {
   const [state, setState] = useState({
-    countries: [],
     selectedRegion: undefined,
     inputValue: undefined,
   })
 
-  useEffect(() => {
-    fetchData()
-
-    async function fetchData() {
-      try {
-        const response = await fetch('./data.json')
-
-        if (!response.ok) {
-          throw new Error('Network response was not OK')
-        }
-
-        const data = await response.json()
-
-        setState((prev) => ({
-          ...prev,
-          countries: data,
-        }))
-      } catch (error) {
-        console.error(
-          'There has been a problem with your fetch operation:',
-          error
-        )
-      }
-    }
-  }, [])
+  const countries = useOutletContext()
 
   const onInputChange = (e) => {
     const inputValue = e.target.value
@@ -76,19 +52,15 @@ function CountriesList() {
     let filteredCountries = []
 
     if (state.inputValue && state.selectedRegion) {
-      filteredCountries = state.countries.filter(
+      filteredCountries = countries.filter(
         (country) => filterByName(country) && filterByRegion(country)
       )
     } else if (state.inputValue) {
-      filteredCountries = state.countries.filter((country) =>
-        filterByName(country)
-      )
+      filteredCountries = countries.filter((country) => filterByName(country))
     } else if (state.selectedRegion) {
-      filteredCountries = state.countries.filter((country) =>
-        filterByRegion(country)
-      )
+      filteredCountries = countries.filter((country) => filterByRegion(country))
     } else {
-      return state.countries
+      return countries
     }
 
     return filteredCountries
