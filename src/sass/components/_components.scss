@@ -1,4 +1,5 @@
 @use 'countries';
+@use 'country';
 
 body {
   --clr-bg: var(--clr-dark-100);
