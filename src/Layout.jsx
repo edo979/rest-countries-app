@@ -5,7 +5,7 @@ function Layout() {
   const [state, setState] = useState({
     countries: [],
     selectedRegion: undefined,
-    inputValue: undefined,
+    inputValue: '',
   })
 
   useEffect(() => {
@@ -39,7 +39,7 @@ function Layout() {
       setState((prev) => ({
         ...prev,
         selectedRegion: undefined,
-        inputValue: undefined,
+        inputValue: '',
       }))
 
       return

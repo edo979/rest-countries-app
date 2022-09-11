@@ -28,7 +28,7 @@ function CountriesList() {
             id="search"
             placeholder="Search for a country..."
             onChange={onInputChange}
-            value={inputValue || ''}
+            value={inputValue}
           />
         </div>
 
