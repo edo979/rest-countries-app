@@ -1,22 +1,13 @@
 import { useLocation } from 'react-router-dom'
-import { useState, useEffect } from 'react'
 
 function CountryDetails() {
   const location = useLocation()
-  const [state, setState] = useState(undefined)
-
-  useEffect(() => {
-    setState(location.state)
-  }, [])
+  const country = location.state
 
   return (
     <div>
-      {state && (
-        <>
-          <p>{state.name.common}</p>
-          <p>{state.population.toLocaleString()}</p>
-        </>
-      )}
+      <p>{country.name.common}</p>
+      <p>{country.population.toLocaleString()}</p>
     </div>
   )
 }
