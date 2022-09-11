@@ -42,8 +42,18 @@ function CountryDetails() {
               <span>{country.subregion}</span>
             </li>
             <li className="details_item">
-              <span>Capital: </span>
-              <span>{country.capital.join(', ')}</span>
+              <span>
+                {Array.isArray(country.capital)
+                  ? country.capital.length > 1
+                    ? 'Capitals: '
+                    : 'Capital: '
+                  : 'Capital: '}
+              </span>
+              <span>
+                {Array.isArray(country.capital)
+                  ? country.capital.join(', ')
+                  : country.capital}
+              </span>
             </li>
           </ul>
         </main>

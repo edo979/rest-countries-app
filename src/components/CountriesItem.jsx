@@ -24,7 +24,16 @@ function CountriesItem({ country }) {
           Region: <span>{country.region}</span>
         </p>
         <p>
-          Capital: <span>{country.capital?.join(', ') || country.capital}</span>
+          {Array.isArray(country.capital)
+            ? country.capital.length > 1
+              ? 'Capitals: '
+              : 'Capital: '
+            : 'Capital: '}
+          <span>
+            {Array.isArray(country.capital)
+              ? country.capital.join(', ')
+              : country.capital}
+          </span>
         </p>
       </div>
     </li>
