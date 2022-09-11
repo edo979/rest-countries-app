@@ -1,16 +1,37 @@
-import { useState } from 'react'
-import { useOutletContext } from 'react-router-dom'
+import { useState, useEffect } from 'react'
 
 import CountriesItem from './CountriesItem'
 import RegionSelect from './RegionSelect'
 
 function CountriesList() {
   const [state, setState] = useState({
+    countries: [],
     selectedRegion: undefined,
     inputValue: undefined,
   })
 
-  const countries = useOutletContext()
+  useEffect(() => {
+    fetchData()
+
+    async function fetchData() {
+      try {
+        const response = await fetch('./data.json')
+
+        if (!response.ok) {
+          throw new Error('Network response was not OK')
+        }
+
+        const data = await response.json()
+
+        setState((prev) => ({ ...prev, countries: data }))
+      } catch (error) {
+        console.error(
+          'There has been a problem with your fetch operation:',
+          error
+        )
+      }
+    }
+  }, [])
 
   const onInputChange = (e) => {
     const inputValue = e.target.value
@@ -52,15 +73,19 @@ function CountriesList() {
     let filteredCountries = []
 
     if (state.inputValue && state.selectedRegion) {
-      filteredCountries = countries.filter(
+      filteredCountries = state.countries.filter(
         (country) => filterByName(country) && filterByRegion(country)
       )
     } else if (state.inputValue) {
-      filteredCountries = countries.filter((country) => filterByName(country))
+      filteredCountries = state.countries.filter((country) =>
+        filterByName(country)
+      )
     } else if (state.selectedRegion) {
-      filteredCountries = countries.filter((country) => filterByRegion(country))
+      filteredCountries = state.countries.filter((country) =>
+        filterByRegion(country)
+      )
     } else {
-      return countries
+      return state.countries
     }
 
     return filteredCountries
@@ -94,14 +119,7 @@ function CountriesList() {
       <section className="countries | m-top">
         <ul className="countries-list | grid-container">
           {getCountries().map((country) => (
-            <CountriesItem
-              key={country.name.common}
-              name={country.name.common}
-              population={country.population}
-              region={country.region}
-              capital={country.capital}
-              flags={country.flags}
-            />
+            <CountriesItem key={country.name.common} country={country} />
           ))}
         </ul>
       </section>

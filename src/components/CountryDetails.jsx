@@ -1,25 +1,20 @@
-import { useParams, useOutletContext } from 'react-router-dom'
+import { useLocation } from 'react-router-dom'
 import { useState, useEffect } from 'react'
 
 function CountryDetails() {
-  const { countryName } = useParams()
-  const countries = useOutletContext()
-  const [country, setCountry] = useState(undefined)
+  const location = useLocation()
+  const [state, setState] = useState(undefined)
 
   useEffect(() => {
-    const country = countries.find(
-      (country) => country.name.common.toLowerCase() === countryName
-    )
-
-    setCountry(country)
+    setState(location.state)
   }, [])
 
   return (
     <div>
-      {country && (
+      {state && (
         <>
-          <p>{country.name.common}</p>
-          <p>{country.population.toLocaleString()}</p>
+          <p>{state.name.common}</p>
+          <p>{state.population.toLocaleString()}</p>
         </>
       )}
     </div>

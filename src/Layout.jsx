@@ -2,31 +2,6 @@ import { Outlet } from 'react-router-dom'
 import { useState, useEffect } from 'react'
 
 function Layout() {
-  const [countries, setCountries] = useState([])
-
-  useEffect(() => {
-    fetchData()
-
-    async function fetchData() {
-      try {
-        const response = await fetch('./data.json')
-
-        if (!response.ok) {
-          throw new Error('Network response was not OK')
-        }
-
-        const data = await response.json()
-
-        setCountries(data)
-      } catch (error) {
-        console.error(
-          'There has been a problem with your fetch operation:',
-          error
-        )
-      }
-    }
-  }, [])
-
   return (
     <>
       <header className="header | container flex">
@@ -39,7 +14,7 @@ function Layout() {
         </button>
       </header>
 
-      <Outlet context={countries} />
+      <Outlet />
     </>
   )
 }
