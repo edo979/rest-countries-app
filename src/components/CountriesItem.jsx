@@ -1,12 +1,10 @@
-import React from 'react'
-
-function showDetails(country) {
-  console.log(country)
-}
+import { useNavigate } from 'react-router-dom'
 
 function CountriesItem({ name, population, region, capital, flags }) {
+  const navigate = useNavigate()
+
   return (
-    <li className="card" onClick={() => showDetails(name)}>
+    <li className="card" onClick={() => navigate(`/${name.toLowerCase()}`)}>
       <div className="card_img">
         <img src={flags.png} alt="" />
       </div>

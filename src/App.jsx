@@ -1,8 +1,7 @@
-import { useState, useEffect } from 'react'
 import { Routes, Route } from 'react-router-dom'
 
 import CountriesList from './components/CountriesList'
-
+import CountryDetails from './components/CountryDetails'
 import Layout from './Layout'
 
 function App() {
@@ -10,6 +9,7 @@ function App() {
     <Routes>
       <Route path="/" element={<Layout />}>
         <Route index element={<CountriesList />} />
+        <Route path="/:country" element={<CountryDetails />} />
       </Route>
     </Routes>
   )
