@@ -24,10 +24,16 @@
     margin: 0;
     padding: 0;
 
-    margin-top: 2rem;
+    margin-top: 1.85rem;
+
+    > li + li {
+      margin-top: 0.85rem;
+    }
   }
 
   &_item {
+    font-size: var(--fs-500);
+
     :first-child {
       font-weight: 600;
     }

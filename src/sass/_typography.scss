@@ -1,8 +1,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@300;600;800&display=swap');
 
 :root {
-  --fs-300: 0.825rem;
-  --fs-400: 0.875rem;
+  --fs-300: 0.875rem;
+  --fs-400: 1rem;
   --fs-500: 1rem;
   --fs-600: 1.25rem;
   --fs-700: 1.55rem;
@@ -25,4 +25,8 @@ h1 {
 
 h2 {
   font-size: var(--fs-700);
+}
+
+p {
+  font-size: var(--fs-400);
 }
