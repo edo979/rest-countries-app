@@ -117,6 +117,8 @@ body {
 
     font-size: var(--fs-500);
     font-weight: 300;
+
+    background-color: hsl(var(--clr-primary-100));
     box-shadow: 0 0 10px 5px hsl(0, 0%, 0%, 0.2);
 
     svg {
