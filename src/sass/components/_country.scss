@@ -26,4 +26,10 @@
 
     margin-top: 2rem;
   }
+
+  &_item {
+    :first-child {
+      font-weight: 600;
+    }
+  }
 }

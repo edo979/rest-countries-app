@@ -26,7 +26,24 @@ function CountryDetails() {
         <main className="details">
           <ul className="details_list">
             <li className="details_item">
-              {country.population.toLocaleString()}
+              <span>Nativ Name: </span>
+              <span>{country.altSpellings.find((s) => s.length > 3)}</span>
+            </li>
+            <li className="details_item">
+              <span>Population: </span>
+              <span>{country.population.toLocaleString()}</span>
+            </li>
+            <li className="details_item">
+              <span>Region: </span>
+              <span>{country.region}</span>
+            </li>
+            <li className="details_item">
+              <span>Sub Region: </span>
+              <span>{country.subregion}</span>
+            </li>
+            <li className="details_item">
+              <span>Capital: </span>
+              <span>{country.capital.join(', ')}</span>
             </li>
           </ul>
         </main>
