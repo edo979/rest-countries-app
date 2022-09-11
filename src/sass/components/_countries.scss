@@ -11,6 +11,13 @@
 
   background-color: hsl(var(--clr-primary-100));
 
+  cursor: pointer;
+
+  &:hover {
+    box-shadow: 0 0 20px 8px hsl(0, 0%, 0%, 0.35),
+      0 0 0 1px hsl(0, 0%, 100%, 0.35);
+  }
+
   & + & {
     margin-top: 2.85rem;
   }

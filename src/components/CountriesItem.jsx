@@ -1,8 +1,12 @@
 import React from 'react'
 
+function showDetails(country) {
+  console.log(country)
+}
+
 function CountriesItem({ name, population, region, capital, flags }) {
   return (
-    <li className="card">
+    <li className="card" onClick={() => showDetails(name)}>
       <div className="card_img">
         <img src={flags.png} alt="" />
       </div>
