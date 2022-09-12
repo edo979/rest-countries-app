@@ -1,5 +1,45 @@
 @media (min-width: 68em) {
+  // Typography
+  :root {
+    --fs-300: 0.975rem;
+    --fs-500: 1.55rem;
+    --fs-600: 1.175rem;
+    --fs-700: 1.55rem;
+  }
+
+  // Layout
   .grid-container {
     gap: 5rem;
+  }
+
+  .form {
+    --f-direction: row;
+  }
+
+  .m-top {
+    --m-top: 3.35rem;
+  }
+
+  // Components
+  .header {
+    padding-block: 2.15rem;
+  }
+  .form {
+    --p-block: 0.85rem;
+
+    .input-group {
+      flex-basis: 50%;
+    }
+
+    > :last-child {
+      width: 200px;
+    }
+  }
+  .btn {
+    --fs-300: 1rem;
+
+    svg {
+      width: 15px;
+    }
   }
 }

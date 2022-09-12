@@ -13,7 +13,8 @@ const customStyles = {
     },
     control: (defaultStyles, state) => ({
       ...defaultStyles,
-      paddingBlock: '0.4rem',
+      paddingBlock: 'var(--p-block)',
+      paddingInline: '0.5rem',
       border: 'none',
       fontSize: 'var(--fs-300)',
       color: 'var(--clr-text)',
