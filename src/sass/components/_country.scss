@@ -29,6 +29,10 @@
     > li + li {
       margin-top: 0.85rem;
     }
+
+    &:not(:first-child) {
+      margin-top: 2.5rem;
+    }
   }
 
   &_item {
@@ -40,6 +44,6 @@
   }
 
   &_borders {
-    margin-top: 2rem;
+    margin-top: 2.5rem;
   }
 }
