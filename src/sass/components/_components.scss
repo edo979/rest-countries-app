@@ -104,7 +104,7 @@ body {
   border: none;
 
   color: var(--clr-text);
-  font-size: var(--fs-300);
+  font-size: var(--fs-400);
   font-weight: 600;
 
   background-color: transparent;
@@ -112,7 +112,7 @@ body {
   cursor: pointer;
 
   svg {
-    width: 10px;
+    width: 12px;
 
     path {
       fill: var(--clr-text);
@@ -127,7 +127,6 @@ body {
   &-primary {
     padding: 0.5rem 2rem;
 
-    font-size: var(--fs-500);
     font-weight: 300;
 
     background-color: hsl(var(--clr-primary-100));
@@ -143,7 +142,7 @@ body {
   padding: 0.5rem 2rem;
   border-radius: 2px;
 
-  font-size: 0.87rem;
+  font-size: var(--fs-300);
 
   background-color: hsl(var(--clr-primary-100));
   box-shadow: 0 0 10px 5px hsl(0, 0%, 0%, 0.2);
