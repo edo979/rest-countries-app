@@ -1,10 +1,17 @@
-function CountryBorders() {
+import { useOutletContext } from 'react-router-dom'
+
+function CountryBorders({ borders }) {
+  const { countries } = useOutletContext()
+
   return (
     <section className="details_borders">
       <h3>Border Countries:</h3>
       <ul className="inline-list">
-        <li>France</li>
-        <li>Germany</li>
+        {borders.map((border) => (
+          <li key={border}>
+            {countries.find((country) => country.cca3 === border).name.common}
+          </li>
+        ))}
       </ul>
     </section>
   )

@@ -107,6 +107,7 @@ function Layout() {
           getCountries,
           selectedRegion: state.selectedRegion,
           inputValue: state.inputValue,
+          countries: state.countries,
         }}
       />
     </>
