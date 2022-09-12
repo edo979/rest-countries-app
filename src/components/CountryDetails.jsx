@@ -1,4 +1,5 @@
 import { useLocation, useNavigate } from 'react-router-dom'
+import CountryBorders from './CountryBorders'
 
 function CountryDetails() {
   const navigate = useNavigate(),
@@ -70,7 +71,17 @@ function CountryDetails() {
                   .join(', ')}
               </span>
             </li>
+            <li className="details_item">
+              <span>Languages: </span>
+              <span>
+                {Object.entries(country.languages)
+                  .map(([k, v]) => v)
+                  .join(', ')}
+              </span>
+            </li>
           </ul>
+
+          <CountryBorders />
         </main>
       </article>
     </main>
