@@ -56,6 +56,21 @@ function CountryDetails() {
               </span>
             </li>
           </ul>
+
+          <ul className="details_list">
+            <li className="details_item">
+              <span>Top Level Domain: </span>
+              <span>{country.tld}</span>
+            </li>
+            <li className="details_item">
+              <span>Currencies: </span>
+              <span>
+                {Object.entries(country.currencies)
+                  .map(([k, v]) => v.name)
+                  .join(', ')}
+              </span>
+            </li>
+          </ul>
         </main>
       </article>
     </main>
