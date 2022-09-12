@@ -81,7 +81,7 @@ function CountryDetails() {
             </li>
           </ul>
 
-          <CountryBorders borders={country.borders} />
+          <CountryBorders borders={country.borders || []} />
         </main>
       </article>
     </main>
