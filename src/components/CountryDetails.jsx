@@ -15,74 +15,70 @@ function CountryDetails() {
         Back
       </button>
 
-      <article className="country-details">
-        <header>
-          <aside className="country_img">
-            <img src={country.flags.png} alt="" />
-          </aside>
+      <article className="country-details details">
+        <div className="details_img">
+          <img src={country.flags.png} alt="" />
+        </div>
 
-          <h2>{country.name.common}</h2>
-        </header>
+        <h2>{country.name.common}</h2>
 
-        <main className="details">
-          <ul className="details_list">
-            <li className="details_item">
-              <span>Nativ Name: </span>
-              <span>{country.altSpellings.find((s) => s.length > 3)}</span>
-            </li>
-            <li className="details_item">
-              <span>Population: </span>
-              <span>{country.population.toLocaleString()}</span>
-            </li>
-            <li className="details_item">
-              <span>Region: </span>
-              <span>{country.region}</span>
-            </li>
-            <li className="details_item">
-              <span>Sub Region: </span>
-              <span>{country.subregion}</span>
-            </li>
-            <li className="details_item">
-              <span>
-                {Array.isArray(country.capital)
-                  ? country.capital.length > 1
-                    ? 'Capitals: '
-                    : 'Capital: '
-                  : 'Capital: '}
-              </span>
-              <span>
-                {Array.isArray(country.capital)
-                  ? country.capital.join(', ')
-                  : country.capital}
-              </span>
-            </li>
-          </ul>
+        <ul className="details_list">
+          <li className="details_item">
+            <span>Nativ Name: </span>
+            <span>{country.altSpellings.find((s) => s.length > 3)}</span>
+          </li>
+          <li className="details_item">
+            <span>Population: </span>
+            <span>{country.population.toLocaleString()}</span>
+          </li>
+          <li className="details_item">
+            <span>Region: </span>
+            <span>{country.region}</span>
+          </li>
+          <li className="details_item">
+            <span>Sub Region: </span>
+            <span>{country.subregion}</span>
+          </li>
+          <li className="details_item">
+            <span>
+              {Array.isArray(country.capital)
+                ? country.capital.length > 1
+                  ? 'Capitals: '
+                  : 'Capital: '
+                : 'Capital: '}
+            </span>
+            <span>
+              {Array.isArray(country.capital)
+                ? country.capital.join(', ')
+                : country.capital}
+            </span>
+          </li>
+        </ul>
 
-          <ul className="details_list">
-            <li className="details_item">
-              <span>Top Level Domain: </span>
-              <span>{country.tld}</span>
-            </li>
-            <li className="details_item">
-              <span>Currencies: </span>
-              <span>
-                {Object.entries(country.currencies)
-                  .map(([k, v]) => v.name)
-                  .join(', ')}
-              </span>
-            </li>
-            <li className="details_item">
-              <span>Languages: </span>
-              <span>
-                {Object.entries(country.languages)
-                  .map(([k, v]) => v)
-                  .join(', ')}
-              </span>
-            </li>
-          </ul>
+        <ul className="details_list">
+          <li className="details_item">
+            <span>Top Level Domain: </span>
+            <span>{country.tld}</span>
+          </li>
+          <li className="details_item">
+            <span>Currencies: </span>
+            <span>
+              {Object.entries(country.currencies)
+                .map(([k, v]) => v.name)
+                .join(', ')}
+            </span>
+          </li>
+          <li className="details_item">
+            <span>Languages: </span>
+            <span>
+              {Object.entries(country.languages)
+                .map(([k, v]) => v)
+                .join(', ')}
+            </span>
+          </li>
+        </ul>
 
-          <CountryBorders borders={country.borders || []} />
-        </main>
+        <CountryBorders borders={country.borders || []} />
       </article>
     </main>
   )
