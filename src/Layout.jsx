@@ -1,13 +1,14 @@
 import { useState, useEffect } from 'react'
-import { Outlet } from 'react-router-dom'
+import { Outlet, useNavigate } from 'react-router-dom'
 import ThemeButton from './components/ThemeButton'
 
 function Layout() {
   const [state, setState] = useState({
-    countries: [],
-    selectedRegion: undefined,
-    inputValue: '',
-  })
+      countries: [],
+      selectedRegion: undefined,
+      inputValue: '',
+    }),
+    navigate = useNavigate()
 
   useEffect(() => {
     fetchData()
@@ -92,7 +93,7 @@ function Layout() {
   return (
     <>
       <header className="header | container flex shadow-light">
-        <h1>Where in the world?</h1>
+        <h1 onClick={() => navigate('/')}>Where in the world?</h1>
         <ThemeButton />
       </header>
 
