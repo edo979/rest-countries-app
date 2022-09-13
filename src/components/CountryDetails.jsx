@@ -1,4 +1,5 @@
 import { useLocation, useNavigate } from 'react-router-dom'
+
 import CountryBorders from './CountryBorders'
 
 function CountryDetails() {
