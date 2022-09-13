@@ -20,7 +20,7 @@ function CountryDetails() {
           <img src={country.flags.png} alt="" />
         </div>
 
-        <h2>{country.name.common}</h2>
+        <h2 className="details_title">{country.name.common}</h2>
 
         <ul className="details_list">
           <li className="details_item">
