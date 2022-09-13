@@ -5,7 +5,7 @@ function Country({ country }) {
 
   return (
     <li
-      className="card"
+      className="card | shadow-light"
       onClick={() =>
         navigate(`/${country.name.common.toLowerCase()}`, {
           state: { ...country },

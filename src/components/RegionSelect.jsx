@@ -62,6 +62,7 @@ function RegionSelect({ onChange, selected }) {
       }}
       onChange={onChange}
       value={options.filter((option) => option.value === selected)}
+      className="shadow-light"
     />
   )
 }

@@ -40,7 +40,7 @@ body {
 
     padding: var(--p-block) 2.5rem;
 
-    background-color: hsl(var(--clr-primary-200));
+    background-color: hsl(var(--clr-primary-100));
 
     svg {
       width: 18px;
@@ -130,7 +130,6 @@ body {
     font-weight: 300;
 
     background-color: hsl(var(--clr-primary-100));
-    box-shadow: 0 0 10px 5px hsl(0, 0%, 0%, 0.2);
 
     svg {
       width: 15px;
@@ -145,5 +144,9 @@ body {
   font-size: var(--fs-300);
 
   background-color: hsl(var(--clr-primary-100));
-  box-shadow: 0 0 10px 5px hsl(0, 0%, 0%, 0.2);
+}
+
+// Utility
+.shadow-light {
+  box-shadow: 0 0 10px 4px hsl(0, 0%, 0%, 0.045);
 }

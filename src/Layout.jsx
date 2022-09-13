@@ -91,7 +91,7 @@ function Layout() {
   }
   return (
     <>
-      <header className="header | container flex">
+      <header className="header | container flex shadow-light">
         <h1>Where in the world?</h1>
         <ThemeButton />
       </header>
