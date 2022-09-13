@@ -1,6 +1,6 @@
 import { useOutletContext } from 'react-router-dom'
 
-import CountriesItem from './CountriesItem'
+import Country from './Country'
 import RegionSelect from './RegionSelect'
 
 function CountriesList() {
@@ -38,7 +38,7 @@ function CountriesList() {
       <section className="countries | m-top">
         <ul className="countries-list | grid-container">
           {getCountries().map((country) => (
-            <CountriesItem key={country.name.common} country={country} />
+            <Country key={country.name.common} country={country} />
           ))}
         </ul>
       </section>

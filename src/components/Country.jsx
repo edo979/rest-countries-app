@@ -1,6 +1,6 @@
 import { useNavigate } from 'react-router-dom'
 
-function CountriesItem({ country }) {
+function Country({ country }) {
   const navigate = useNavigate()
 
   return (
@@ -40,4 +40,4 @@ function CountriesItem({ country }) {
   )
 }
 
-export default CountriesItem
+export default Country
