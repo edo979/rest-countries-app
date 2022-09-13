@@ -2,7 +2,6 @@ import { useOutletContext } from 'react-router-dom'
 
 function CountryBorders({ borders }) {
   const { countries } = useOutletContext()
-  console.log(countries.length)
 
   return (
     <section className="details_borders">

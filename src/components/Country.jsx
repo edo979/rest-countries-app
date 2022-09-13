@@ -6,11 +6,7 @@ function Country({ country }) {
   return (
     <li
       className="card | shadow-light"
-      onClick={() =>
-        navigate(`/${country.name.common.toLowerCase()}`, {
-          state: { ...country },
-        })
-      }
+      onClick={() => navigate(`/${country.name.common.toLowerCase()}`)}
     >
       <div className="card_img">
         <img src={country.flags.png} alt="" />

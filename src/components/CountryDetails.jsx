@@ -1,11 +1,14 @@
-import { useLocation, useNavigate } from 'react-router-dom'
+import { useNavigate, useOutletContext, useParams } from 'react-router-dom'
 
 import CountryBorders from './CountryBorders'
 
 function CountryDetails() {
   const navigate = useNavigate(),
-    location = useLocation(),
-    country = location.state
+    params = useParams(),
+    { countries } = useOutletContext(),
+    country = countries.find(
+      (country) => country.name.common.toLowerCase() === params.countryName
+    )
 
   return (
     <main className="country | container">
